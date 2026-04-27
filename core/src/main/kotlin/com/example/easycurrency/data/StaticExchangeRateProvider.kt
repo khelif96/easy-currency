@@ -7,7 +7,7 @@ import java.time.LocalDate
 
 object StaticExchangeRateProvider : ExchangeRateProvider {
 
-    private val RATE_DATE = LocalDate.of(2024, 1, 1)
+    private val RATE_DATE = LocalDate.of(2026, 4, 25)
     private const val SOURCE = "Static placeholder (not real-time)"
 
     private val rates: Map<CurrencyPair, ExchangeRate> = buildMap {
@@ -16,9 +16,9 @@ object StaticExchangeRateProvider : ExchangeRateProvider {
             put(pair, ExchangeRate(pair, rate, RATE_DATE, SOURCE))
         }
 
-        add(CurrencyCode.JPY, CurrencyCode.USD, 0.0067)
+        add(CurrencyCode.JPY, CurrencyCode.USD, 0.00628)
         add(CurrencyCode.EUR, CurrencyCode.USD, 1.08)
-        add(CurrencyCode.USD, CurrencyCode.JPY, 149.50)
+        add(CurrencyCode.USD, CurrencyCode.JPY, 159.24)
         add(CurrencyCode.USD, CurrencyCode.EUR, 0.93)
         add(CurrencyCode.GBP, CurrencyCode.USD, 1.27)
         add(CurrencyCode.CAD, CurrencyCode.USD, 0.74)

@@ -18,12 +18,29 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            isMinifyEnabled = false
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+    }
+
+    testOptions {
+        managedDevices {
+            devices {
+                create<com.android.build.api.dsl.ManagedVirtualDevice>("pixel5api34") {
+                    device = "Pixel 5"
+                    apiLevel = 34
+                    systemImageSource = "google"
+                }
+            }
         }
     }
     compileOptions {
@@ -55,6 +72,7 @@ dependencies {
     implementation("androidx.glance:glance-material3:1.1.0")
 
     // Compose
+    implementation("androidx.activity:activity-compose:1.9.0")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
 
